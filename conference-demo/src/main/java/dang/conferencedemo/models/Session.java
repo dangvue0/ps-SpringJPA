@@ -24,6 +24,19 @@ public class Session {
     )
     private List<Speaker> speakers;
 
+
+//    @OneToOne(mappedBy = "session")
+//    private Session_Schedule session_schedule;
+//
+//    public Session_Schedule getSession_schedule() {
+//        return session_schedule;
+//    }
+//
+//    public void setSession_schedule(Session_Schedule session_schedule) {
+//        this.session_schedule = session_schedule;
+//    }
+
+
     public List<Speaker> getSpeakers() {
         return speakers;
     }

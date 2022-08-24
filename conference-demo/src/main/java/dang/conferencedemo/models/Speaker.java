@@ -22,11 +22,9 @@ public class Speaker {
     @Lob
     @Type(type = "org.hibernate.type.BinaryType")
     private byte[] speaker_photo;
-
     public byte[] getSpeaker_photo() {
         return speaker_photo;
     }
-
     public void setSpeaker_photo(byte[] speaker_photo) {
         this.speaker_photo = speaker_photo;
     }
