@@ -33,6 +33,22 @@ public class Speaker {
     @JsonIgnore
     private List<Session> sessions;
 
+    @ManyToOne
+    @JoinTable(
+            name = "workshop_speakers",
+            joinColumns = @JoinColumn(name = "speaker_id"),
+            inverseJoinColumns = @JoinColumn(name = "workshop_id")
+    )
+    private Workshop workshop;
+
+    public Workshop getWorkshop() {
+        return workshop;
+    }
+
+    public void setWorkshop(Workshop workshop) {
+        this.workshop = workshop;
+    }
+
     public List<Session> getSessions() {
         return sessions;
     }

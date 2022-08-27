@@ -1,10 +1,10 @@
 package dang.conferencedemo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "sessions")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -24,18 +24,21 @@ public class Session {
     )
     private List<Speaker> speakers;
 
+    @ManyToOne
+    @JoinTable(
+            name = "session_tags",
+            joinColumns = @JoinColumn(name = "session_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private Tag tag;
 
-//    @OneToOne(mappedBy = "session")
-//    private Session_Schedule session_schedule;
-//
-//    public Session_Schedule getSession_schedule() {
-//        return session_schedule;
-//    }
-//
-//    public void setSession_schedule(Session_Schedule session_schedule) {
-//        this.session_schedule = session_schedule;
-//    }
+    public Tag getTag() {
+        return tag;
+    }
 
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
 
     public List<Speaker> getSpeakers() {
         return speakers;
